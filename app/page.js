@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useSession, signIn, signOut } from "next-auth/react";
 import axios from "axios";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -130,11 +131,16 @@ export default function Home() {
                 key={product.id}
                 className="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105"
               >
-                <img
-                  src={product.imageUrl}
-                  alt={product.name}
-                  className="w-full h-56 object-cover"
-                />
+             
+
+<Image
+  src={product.imageUrl}
+  alt={product.name}
+  width={300} // Adjust width
+  height={224} // Adjust height
+  className="w-full h-56 object-cover"
+/>
+
                 <div className="p-5">
                   <h2 className="text-lg font-semibold text-gray-800">
                     {product.name}
